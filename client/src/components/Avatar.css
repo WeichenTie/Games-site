@@ -1,13 +1,13 @@
 .avatar-display {
-    
+    margin: auto 0;
     width: 96px;
     height: 96px;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
 }
 .avatar-part {
     position: absolute;
-    background-size: 960px 960px;
-    width: 96px;
-    height: 96px;
 }
 
 #avatar-mouth {
