@@ -20,7 +20,7 @@ class App extends Component {
             <BrowserRouter>
                 <Routes>
                     <Route exact path="/" element={<CharacterCreation/>}/>
-                    <Route path="/Lobby" element={<LobbyMain name="Alex" squiggly="uwu"/>}/>
+                    <Route path="/Lobby" element={<LobbyMain/>}/>
                 </Routes>
             </BrowserRouter>
         );
