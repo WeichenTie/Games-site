@@ -9,13 +9,6 @@ import NotsAndCrossesTitle from '../images/NotsAndCrosses.png'
 
 
 class LobbyMain extends Component {
-    componentWillMount() {
-        console.log(this.props);
-    }
-    componentWillUnmount() {
-        console.log("BYE BYE");
-    }
-
     test() {
         return <img src = {TetrisTitle} alt = 'bruh'/>;
     }
@@ -29,9 +22,9 @@ class LobbyMain extends Component {
                 </div>
                 
                 <div className='Lobby'>
-                    <div class="dropdown">
-                        <button class="dropbtn">Games</button>
-                        <div class="dropdown-content">
+                    <div className="dropdown">
+                        <button className="dropbtn">Games</button>
+                        <div className="dropdown-content">
 
                             <a href="#"></a>
                             <button>

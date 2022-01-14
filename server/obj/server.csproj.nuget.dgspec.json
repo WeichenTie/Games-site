@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Full Stack\\Games site\\server\\server.csproj": {}
+    "D:\\Projects\\FullStack\\Games-site\\server\\server.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Full Stack\\Games site\\server\\server.csproj": {
+    "D:\\Projects\\FullStack\\Games-site\\server\\server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Full Stack\\Games site\\server\\server.csproj",
+        "projectUniqueName": "D:\\Projects\\FullStack\\Games-site\\server\\server.csproj",
         "projectName": "server",
-        "projectPath": "D:\\Projects\\Full Stack\\Games site\\server\\server.csproj",
+        "projectPath": "D:\\Projects\\FullStack\\Games-site\\server\\server.csproj",
         "packagesPath": "C:\\Users\\weich\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Full Stack\\Games site\\server\\obj\\",
+        "outputPath": "D:\\Projects\\FullStack\\Games-site\\server\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\weich\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

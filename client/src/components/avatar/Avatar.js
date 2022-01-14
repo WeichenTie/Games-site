@@ -10,7 +10,11 @@ const Avatar = ({size=96, colourIndex=0, mouthIndex=0, eyeIndex=0}) => {
         return -Math.floor(index / columns) * size;
     }
     return (
-        <div className="avatar-display">
+        <div className="avatar-display"
+            style={{
+                width:`${size}px`,
+                height:`${size}px`
+            }}>
             <div 
                 className="avatar-part"
                 id='avatar-colour'

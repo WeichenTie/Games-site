@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9z8oxYbl4OCAiCTa9LIr1VsD6K9TirQ1Gp0g1K6uoHQfwMudQiKW7iZyjtzGstEv1BkED2465K1QIQBNKF7wsw==",
+  "dgSpecHash": "MxF0VtpUUceR+O9jkHj4qZ8PCJKjXPf3+OizJwH64ME5M7Jh/saBPNLmH6Hv7cqnNyuOi0vrh9gRR2jLOpd6gw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Full Stack\\Games site\\server\\server.csproj",
+  "projectFilePath": "D:\\Projects\\FullStack\\Games-site\\server\\server.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

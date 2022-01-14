@@ -5,26 +5,19 @@ import { w3cwebsocket as W3CWebSocket } from "websocket";
 import CharacterCreation from './pages/CharacterCreation';
 import LobbyMain from './pages/LobbyMain'
 import './App.css';
-const client = new W3CWebSocket('ws://127.0.0.1:8000');
-class App extends Component {
-    componentWillMount() {
-        client.onopen = () => {
-            console.log('WebSocket Client Connected');
-        };
-        client.onmessage = (message) => {
-            console.log(message);
-        };
-    }
-    render() {
-        return (
-            <BrowserRouter>
-                <Routes>
-                    <Route exact path="/" element={<CharacterCreation/>}/>
-                    <Route path="/Lobby" element={<LobbyMain/>}/>
-                </Routes>
-            </BrowserRouter>
-        );
-    }
+import TicTacToe from './pages/TicTacToe';
+
+const App = () => {
+    
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route exact path="/" element={<CharacterCreation/>}/>
+                <Route path="/Lobby" element={<LobbyMain/>}/>
+                <Route path="/TicTacToe" element={<TicTacToe/>}/>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
