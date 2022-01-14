@@ -21,3 +21,4 @@ D:\Projects\FullStack\Games-site\server\obj\Debug\net5.0\server.dll
 D:\Projects\FullStack\Games-site\server\obj\Debug\net5.0\ref\server.dll
 D:\Projects\FullStack\Games-site\server\obj\Debug\net5.0\server.pdb
 D:\Projects\FullStack\Games-site\server\obj\Debug\net5.0\server.genruntimeconfig.cache
+D:\Projects\FullStack\Games-site\server\bin\Debug\net5.0\API\Properties\launchSettings.json

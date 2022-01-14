@@ -39,9 +39,9 @@ const CharacterCreation = (props) => {
         if (connection) {
             connection.start()
                 .then(result => {
-                    connection.on('ReceiveToken', message => {
-                        dispatch(setToken(message));
-                        console.log(message);
+                    connection.on('ReceiveToken', token => {
+                        dispatch(setToken(token));
+                        console.log(token);
                     });
                 })
                 .catch(e => console.log('Connection failed: ', e));
