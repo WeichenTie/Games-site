@@ -9,6 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Server.Backend.DataStorage;
+using Server.Backend.Lobbies;
+using Server.Backend.Models;
+
 namespace Server
 {
     public class Startup
@@ -51,7 +55,9 @@ namespace Server
                 endpoints.MapControllers();
                 endpoints.MapHub<CharacterCreationHub>("/create-character");
                 endpoints.MapHub<ChatHub>("/chat");
+                endpoints.MapHub<LobbyHub>("/main-lobby");
             });
         }
+        
     }
 }

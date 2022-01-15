@@ -6,6 +6,7 @@ import CharacterCreation from './pages/CharacterCreation';
 import LobbyMain from './pages/LobbyMain'
 import './App.css';
 import TicTacToe from './pages/TicTacToe';
+import ChatRoom from './pages/ChatRoom';
 
 const App = () => {
     
@@ -15,6 +16,7 @@ const App = () => {
                 <Route exact path="/" element={<CharacterCreation/>}/>
                 <Route path="/Lobby" element={<LobbyMain/>}/>
                 <Route path="/TicTacToe" element={<TicTacToe/>}/>
+                <Route path="/Chat" element={<ChatRoom/>}/>
             </Routes>
         </BrowserRouter>
     );

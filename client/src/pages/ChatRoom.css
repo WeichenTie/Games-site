@@ -1,0 +1,18 @@
+.chat-room {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.chat {
+    width: 600px;
+    flex: 0 0 auto;
+    background-color: rgb(71, 71, 71);
+}
+
+.participants {
+    flex: 0 0 auto;
+    width: calc(100% - 300px);
+    background-color: rgba(71, 71, 71, 0.548);
+    display:flex;
+}

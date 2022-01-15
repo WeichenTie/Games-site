@@ -1,9 +1,10 @@
 import React from 'react';
+import './Chat.css'
 
 const Message = (props) => (
-    <div style={{ background: "#eee", borderRadius: '5px', padding: '0 10px' }}>
-        <p><strong>{props.user}</strong> says:</p>
-        <p>{props.message}</p>
+    <div className='message'>
+        <span className="message-username" style={{color:"orange"}}>{props.user}: </span>
+        <span className="message-content" style={{color:"white"}}>{props.message}</span>
     </div>
 );
 

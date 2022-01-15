@@ -56,7 +56,7 @@ const CharacterCreation = (props) => {
             colourIndex: colourIndex,
         };
         try {
-            await connection.send('SendMessage', playerData);
+            await connection.send('CreateCharacter', playerData);
         }
         catch(e) {
             console.log(e);
@@ -75,7 +75,7 @@ const CharacterCreation = (props) => {
     async function handleCharacterCreate(e) {
         e.preventDefault();
         await createCharacter();
-        navigate("./Lobby");
+        navigate("./Chat");
     }
 
     return (
