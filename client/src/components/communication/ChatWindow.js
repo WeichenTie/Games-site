@@ -1,26 +1,27 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useEffect } from 'react';
 import './Chat.css'
 import Message from './Message';
 
 const ChatWindow = (props) => {
-    const messageEl = useRef(null);
+    // Loads all the chat
     const chat = props.chat
         .map(m => <Message 
-            key={Date.now() * Math.random()}
+            key={Math.random()}
             user={m.token}
             message={m.message}/>);
     
+    // Auto scroll feature activates when there is a change to the chat
     useEffect(() => {
         const div = document.getElementById("chat-window-component");
-        console.log(`st: ${div.scrollTop}, sh: ${div.scrollHeight}, ch: ${div.clientHeight}`);
         const isScrolledToBottom = div.scrollHeight - div.clientHeight <= div.scrollTop + 100;
+        // Auto scroll if scroll bar is at bottom of chat box
         if (isScrolledToBottom) {
             div.scrollTop = div.scrollHeight - div.clientHeight
         }
     }, [chat])
 
     return(
-        <div className='chat-window' id='chat-window-component' ref={messageEl}>
+        <div className='chat-window' id='chat-window-component'>
             {chat}
         </div>
     )

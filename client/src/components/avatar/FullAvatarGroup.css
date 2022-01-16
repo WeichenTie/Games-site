@@ -1,0 +1,24 @@
+.full-avatar-group {
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+.avatar-name-pair {
+    box-sizing: border-box;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.2rem;
+}
+
+.avatar-group-name {
+    color:white;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    
+}

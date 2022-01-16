@@ -38,10 +38,17 @@ namespace Server.Backend.DataStorage {
         //////////////////////////////////////////////////////////
         //                    Data Fields                       //
         //////////////////////////////////////////////////////////
+        private Dictionary<string, string> connectionToToken = new Dictionary<string, string>();
         private Dictionary<string, Player> players = new Dictionary<string, Player>();
         private Dictionary<string, Lobby> lobbies = new Dictionary<string, Lobby>();
-        
-        
+
+        public void AddConnection(string connectionID, string token) {
+            connectionToToken.Add(connectionID, token);
+        }
+        public void RemoveConnection(string connectionID) {
+            connectionToToken.Remove(connectionID);
+        }
+
         public void AddPlayer(Player player) {
             players.Add(player.UUID, player);
         }
@@ -54,7 +61,10 @@ namespace Server.Backend.DataStorage {
         public void RemoveLobby(string lobbyID) {
             lobbies.Remove(lobbyID);
         }
-        
+
+        public bool ContainsPlayer(string token) {
+            return players.ContainsKey(token);
+        }
         public Player GetPlayer(string token) {
             if (players.ContainsKey(token)) {
                 return players[token];

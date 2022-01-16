@@ -23,8 +23,8 @@ namespace Server.Backend.Lobbies {
             players.Remove(token);
         }
         // Returns an Array of all Players
-        public HashSet<Player> GetAllPlayersAsHashSet() {
-            return players.Select(p => Data.Instance.GetPlayer(p)).ToHashSet();
+        public List<Player> GetAllPlayersAsList() {
+            return players.Select(p => Data.Instance.GetPlayer(p)).ToList();
         }
         // Returns an Array of all Players
         public Player[] GetAllPlayersAsArray() {
@@ -36,7 +36,6 @@ namespace Server.Backend.Lobbies {
         }
         // TODO: Implement chatting 
         public virtual void AddMessage(string player) {
-            messages.Add(player + "Sent a message");
         }
     }
 }

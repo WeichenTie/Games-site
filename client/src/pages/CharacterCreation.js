@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { w3cwebsocket as W3CWebSocket } from "websocket";
 import { useState,useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { setToken } from '../redux/actions'
-import Button from 'react-bootstrap/Button';
 import './CharacterCreation.css'
 import Avatar from '../components/avatar/Avatar';
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
@@ -26,7 +24,7 @@ const CharacterCreation = (props) => {
 
     useEffect(() => {
         const newConnection = new HubConnectionBuilder()
-            .withUrl('http://localhost:5000/create-character')
+            .withUrl('http://127.0.0.1:5000/create-character')
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();
@@ -40,8 +38,11 @@ const CharacterCreation = (props) => {
             connection.start()
                 .then(result => {
                     connection.on('ReceiveToken', token => {
+                        console.log("SETTING TOKEN: "+ token);
                         dispatch(setToken(token));
-                        console.log(token);
+                        console.log("DONE SETTING TOKEN: "+ token);
+                        navigate("/Chat");
+                        console.log("CHANGING PAGE: "+ token);
                     });
                 })
                 .catch(e => console.log('Connection failed: ', e));
@@ -56,13 +57,22 @@ const CharacterCreation = (props) => {
             colourIndex: colourIndex,
         };
         try {
+            console.log("SENDING CREATE CHAR REQUEST: "+ token);
             await connection.send('CreateCharacter', playerData);
+            console.log("DONE SENDING CREATE CHAR REQUEST: "+ token)
         }
         catch(e) {
             console.log(e);
         }
     }
-
+    async function handleCharacterCreate(e) {
+        e.preventDefault();
+        const isNameValid = name && name !== ''; // check for valid message
+        if (isNameValid) {
+            console.log("CREATING CHARACTER: "+ token)
+            await createCharacter();
+        }
+    }
     function incrementIndex (setter, newValue, max) {
         if (newValue >= max) {
             newValue = 0;
@@ -71,13 +81,6 @@ const CharacterCreation = (props) => {
         }
         setter(newValue);
     }
-
-    async function handleCharacterCreate(e) {
-        e.preventDefault();
-        await createCharacter();
-        navigate("./Chat");
-    }
-
     return (
         <div className="page-container">
             <div className="logo">

@@ -8,17 +8,13 @@ const ChatInput = (props) => {
     const [message, setMessage] = useState('');
     
     const onSubmit = (e) => {
-        e.preventDefault();
-
-        const isMessageProvided = message && message !== '';
-
+        e.preventDefault(); // prevent page refresh
+        const isMessageProvided = message && message !== ''; // check for valid message
         if (isMessageProvided) {
             props.sendMessage(message);
             setMessage('');
         }
     }
-
-    
 
     const onMessageUpdate = (e) => {
         setMessage(e.target.value);
