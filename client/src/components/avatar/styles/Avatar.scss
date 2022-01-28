@@ -1,0 +1,20 @@
+.avatar-display {
+    position: relative;
+    margin: auto 0;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    .avatar-part {
+        position:absolute;
+    }
+
+    #avatar-mouth {
+        background-image:url("../../../images/mouth_atlas.gif");
+    }
+    #avatar-eyes {
+        background-image:url("../../../images/eyes_atlas.gif");
+    }
+    #avatar-colour {
+        background-image:url("../../../images/color_atlas.gif");
+    }
+}

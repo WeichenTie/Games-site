@@ -12,12 +12,19 @@ using Server.Backend.Models;
 namespace Server.Api.Hubs
 {
     public class CharacterCreationHub : Hub<ICharacterCreationClient> {
+        public async override Task OnConnectedAsync() {
+            Console.WriteLine("Connecting to CharacterCreationHub: " + Context.ConnectionId);
+        }
+
+        public override Task OnDisconnectedAsync(Exception exception) {
+            Console.WriteLine("Disconnecting from CharacterCreationHub: " + Context.ConnectionId);
+            return base.OnDisconnectedAsync(exception);
+        }
         public async Task CreateCharacter(Player player)
         {
             string token = System.Guid.NewGuid().ToString();
-            player.UUID = token;
-            Data.Instance.AddPlayer(player);
-            Console.WriteLine($"Created Character: UUID: {player.UUID} Name: {player.name} Indexes: {player.eyeIndex} + {player.mouthIndex} + {player.colourIndex}");
+            Data.Instance.AddPlayer(token, player);
+            Console.WriteLine($"Created Character: Token: {token} Name: {player.name} Indexes: {player.eyeIndex} + {player.mouthIndex} + {player.colourIndex}");
             await Clients.Caller.ReceiveToken(token);
         }
     }

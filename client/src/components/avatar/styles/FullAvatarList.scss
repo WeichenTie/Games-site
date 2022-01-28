@@ -1,0 +1,32 @@
+.full-avatar-list{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    
+    width: fit-content;
+    padding: 10px;
+    border-radius: 30px;
+    overflow-y: scroll;
+
+    .avatar-name-pair{
+        box-sizing: border-box;
+        display: flex;
+        background-color: rgba(164, 123, 197, 0.753);
+        justify-content: flex-start;
+        align-items: center;
+
+        margin: 5px;
+        padding: 5px 25px;
+        width: 400px;
+
+        border-radius: 100px 25px;
+        .avatar-display{
+            margin-right: 20px;
+        }
+        .avatar-name{
+            text-overflow:clip;
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+    }
+}

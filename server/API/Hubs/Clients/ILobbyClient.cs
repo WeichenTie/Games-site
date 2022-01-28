@@ -6,9 +6,10 @@ namespace Server.Api.Hubs.Clients
 {
     public interface ILobbyClient {
         Task RedirectToCharacterCreate();
+        Task Redirect(string addr);
         Task ReceiveMessage(ChatMessage message);
         Task JoinLobby();
         Task LeaveLobby();
-        Task ReceiveAllPlayers(List<Player> players);
+        Task ReceiveAllPlayers(IReadOnlyList<Player> players);
     }
 }

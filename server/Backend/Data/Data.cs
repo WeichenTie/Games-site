@@ -32,30 +32,40 @@ namespace Server.Backend.DataStorage {
             }
         }
         public static void StartBackend() {
-            Lobby lobby = new Lobby("HOME");
+            ILobby<Player> lobby = new MainLobby("HOME");
             Data.Instance.AddLobby(lobby);
         }
         //////////////////////////////////////////////////////////
         //                    Data Fields                       //
         //////////////////////////////////////////////////////////
-        private Dictionary<string, string> connectionToToken = new Dictionary<string, string>();
+        private Dictionary<string, string> tokenToConnection = new Dictionary<string, string>();
         private Dictionary<string, Player> players = new Dictionary<string, Player>();
-        private Dictionary<string, Lobby> lobbies = new Dictionary<string, Lobby>();
+        private Dictionary<string, ILobby> lobbies = new Dictionary<string, ILobby>();
 
-        public void AddConnection(string connectionID, string token) {
-            connectionToToken.Add(connectionID, token);
-        }
-        public void RemoveConnection(string connectionID) {
-            connectionToToken.Remove(connectionID);
+        public void UpdateTokenConnection(string token, string connectionID) {
+            if (!tokenToConnection.ContainsKey(token)) {
+                tokenToConnection.Add(token, connectionID);
+            }
+            else {
+                tokenToConnection[token] = connectionID;
+            }
         }
 
-        public void AddPlayer(Player player) {
-            players.Add(player.UUID, player);
+        public IReadOnlyList<string> GetConnectionsFromTokens(IReadOnlyList<string> tokens) {
+            List<string> connectionIDs = new List<string>();
+            foreach (string token in tokens) {
+                connectionIDs.Add(tokenToConnection[token]);
+            }
+            return connectionIDs;
+        }
+
+        public void AddPlayer(string token, Player player) {
+            players.Add(token, player);
         }
         public void RemovePlayer(string token) {
             players.Remove(token);
         }
-        public void AddLobby(Lobby lobby) {
+        public void AddLobby(ILobby lobby) {
             lobbies.Add(lobby.LOBBY_ID, lobby);
         }
         public void RemoveLobby(string lobbyID) {
@@ -63,7 +73,10 @@ namespace Server.Backend.DataStorage {
         }
 
         public bool ContainsPlayer(string token) {
-            return players.ContainsKey(token);
+            return token != null && players.ContainsKey(token);
+        }
+        public bool ContainsLobby(string lobby) {
+            return lobby != null && lobbies.ContainsKey(lobby);
         }
         public Player GetPlayer(string token) {
             if (players.ContainsKey(token)) {
@@ -81,9 +94,9 @@ namespace Server.Backend.DataStorage {
             return players.Keys.ToList();
         }
 
-        public Lobby GetLobby(string lobbyId) {
+        public ILobby<T> GetLobby<T>(string lobbyId) where T : Player {
             if (lobbies.ContainsKey(lobbyId)) {
-                return lobbies[lobbyId];
+                return (ILobby<T>)lobbies[lobbyId];
             }
             else {
                 Console.WriteLine("Lobby does not exist");

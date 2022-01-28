@@ -1,6 +1,4 @@
-import './Avatar.css';
-
-
+import './styles/Avatar.css';
 
 const Avatar = ({size=96, colourIndex=0, mouthIndex=0, eyeIndex=0}) => {
     function getX(index, columns) {

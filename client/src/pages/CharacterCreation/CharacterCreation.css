@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
+.page-container {
+  margin: 30px auto;
+}
+
+.page-container .form-box {
+  border-radius: 30px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: block;
+  width: 25%;
+  min-width: 200px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.411);
+  padding: 2rem;
+}
+
+.page-container .form-box .name-input-box {
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 20px;
+  min-height: 28px;
+  border: 2px solid rgba(255, 255, 255, 0.452);
+  border-radius: 4px;
+  outline-width: 0;
+  background-color: rgba(255, 255, 255, 0.411);
+  color: white;
+  text-align: center;
+  font-family: "Comfortaa", Lato, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.12) 0px 1px 2px;
+          box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.12) 0px 1px 2px;
+  -webkit-transition: all 80ms ease 0s;
+  transition: all 80ms ease 0s;
+}
+
+.page-container .form-box .name-input-box:focus {
+  border: 3px solid rgba(255, 255, 255, 0.356);
+}
+
+.page-container .form-box .character-customization-box {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 2px solid rgba(255, 255, 255, 0.452);
+  border-radius: 10px;
+  width: 100%;
+  margin: 5px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page-container .form-box .character-customization-box .arrow-group {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.page-container .form-box .character-customization-box .arrow-group .arrow {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  background-size: 68px 68px;
+  width: 34px;
+  height: 34px;
+  background-image: url("../../images/arrow.gif");
+}
+
+.page-container .form-box .character-customization-box .arrow-group .arrow-right {
+  background-position: 0px 34px;
+}
+
+.page-container .form-box .character-customization-box .arrow-group .arrow-right:hover {
+  background-position: 34px 34px;
+}
+
+.page-container .form-box .character-customization-box .arrow-group .arrow-left {
+  background-position: 0px 0px;
+}
+
+.page-container .form-box .character-customization-box .arrow-group .arrow-left:hover {
+  background-position: 34px 0px;
+}
+
+.page-container .form-box .create-character {
+  text-align: center;
+  font-family: "Comfortaa", Lato, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  margin: 0 auto;
+  width: 100%;
+  height: 2.5rem;
+  background-color: rgba(162, 0, 255, 0.356);
+  border: 2px solid white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 3px;
+  font-size: 1.3rem;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.page-container .form-box .create-character:hover {
+  -webkit-transition: 100ms;
+  transition: 100ms;
+  background-color: #3f923f;
+}
+/*# sourceMappingURL=CharacterCreation.css.map */

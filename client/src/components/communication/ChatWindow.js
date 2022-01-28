@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './Chat.css'
+import './styles/Chat.css'
 import Message from './Message';
 
 const ChatWindow = (props) => {

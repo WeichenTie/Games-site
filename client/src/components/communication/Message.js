@@ -1,5 +1,5 @@
 import React from 'react';
-import './Chat.css'
+import './styles/Chat.css'
 
 const Message = (props) => (
     <div className='message'>

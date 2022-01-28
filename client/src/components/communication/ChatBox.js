@@ -3,7 +3,7 @@ import React from 'react';
 import ChatWindow from './ChatWindow';
 import ChatInput from './ChatInput';
 
-import './Chat.css'
+import './styles/Chat.css'
 
 const ChatBox = (props) => {
     return ( 

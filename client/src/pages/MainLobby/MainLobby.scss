@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+$font-family: 'Comfortaa', Lato, sans-serif;
+$main-colour: rgba(102, 45, 148, 0.698);
+
+$large-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+$form-colour: rgba(255, 255, 255, 0.411);
+$elem-border: 3px solid rgba(255, 255, 255, 0.521);
+
+$black: #000000;
+$cornflower-lilac: #ffaea9;
+$salmon: #ff7b73;
+$white: #ffffff;
+$your-pink: #ffcccc;
+
+.main-lobby-page-container {
+    position: absolute;
+    display: flex;
+
+    box-sizing: border-box;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../../images/backgroundOverlay3.png), linear-gradient(to bottom right, rgba(140, 0, 255, 0.534), rgba(0, 74, 87, 0.301));
+    
+    .main-content {
+        box-sizing: border-box;
+        width: 80vw;
+        margin: 0 auto;
+        padding: 50px;
+
+        display: flex;
+        justify-content: center;
+        .left-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .left-sub-container{
+                margin-bottom: 15px;
+                height: 50vh;
+                flex: 0 0 auto;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+    
+                box-sizing: border-box;
+                padding:30px;
+                width: fit-content;
+                
+                border-radius: 30px;
+                background-color: $main-colour;
+                box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 2px;
+                h3 {
+                    font-weight: bolder;
+                    font-size: 60px;
+                    color: rgba(255, 255, 255, 0.603);
+                    margin: 0;
+                }
+                .full-avatar-list{
+                    border:$elem-border;
+                    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+                }
+            }
+        }
+        .right-container {
+            display: flex;
+            flex-direction: column;
+            margin: 0 30px;
+            width: 50vw;
+            background-color: $main-colour;
+
+            border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+            
+            h3 {
+                margin: 20px 0 0 20px;
+
+                font-weight: bolder;
+                font-size: 60px;
+                color: rgba(255, 255, 255, 0.603);
+            }
+            .invite-or-start {
+                display: flex;
+                justify-content: space-evenly;
+                input {
+                    font-size: 15px;
+                    height: 4rem;
+                    width: 150px;
+                    border-radius: 5px;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-lobby-page-container .main-content .right-container .game-container {
+    height: 70%;
+    display:flex;
+    padding: 10px 30px;
+    .love-letter {
+        background-image: url('../../images/LoveLetter/logo.png');
+    }
+    .game-logo {
+        width: 200px;
+        height: 200px;
+
+        border: $elem-border;
+        border-radius: 30px;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow:inset 10px 10px 100px rgb(0, 0, 0);
+    }
+    .selected {
+        border-color: red;
+    }
+}

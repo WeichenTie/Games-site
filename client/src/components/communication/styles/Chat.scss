@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+$main-colour: rgb(26, 26, 26);
+$border-colour:rgb(121, 121, 121);
+
+.chat-box {
+    box-sizing: border-box;
+    background-color: $main-colour;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding:10px;
+    border: 3px solid $main-colour;
+    border-radius: 15px;
+    
+    
+    .chat-window {
+        overflow-wrap: break-word;
+        overflow-y: auto;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 5px;
+        box-sizing: border-box;
+        .message {
+            .message-username {
+                font-size: 18px;
+                font-weight:normal;
+            }
+            .message-content {
+                font-size: 18px;
+                font-weight:normal;
+            }
+        }
+    }
+
+    .chat-input {
+        width:100%;
+        height: 35px;
+        border-radius: 6px;
+        color: white;
+        background-color: $main-colour;
+        margin: auto;
+        box-sizing: border-box;
+        padding: 0;
+        border: 2px solid $border-colour;
+        padding: 3px 10px;
+        font-family: 'Comfortaa', Lato, sans-serif;
+        font-size: 16px;
+    }
+    
+    
+}

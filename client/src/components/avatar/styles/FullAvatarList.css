@@ -1,0 +1,47 @@
+.full-avatar-list {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 30px;
+  overflow-y: scroll;
+}
+
+.full-avatar-list .avatar-name-pair {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(164, 123, 197, 0.753);
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5px;
+  padding: 5px 25px;
+  width: 400px;
+  border-radius: 100px 25px;
+}
+
+.full-avatar-list .avatar-name-pair .avatar-display {
+  margin-right: 20px;
+}
+
+.full-avatar-list .avatar-name-pair .avatar-name {
+  text-overflow: clip;
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+/*# sourceMappingURL=FullAvatarList.css.map */

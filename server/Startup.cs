@@ -49,8 +49,7 @@ namespace Server
             {
                 endpoints.MapControllers();
                 endpoints.MapHub<CharacterCreationHub>("/create-character");
-                endpoints.MapHub<ChatHub>("/chat");
-                endpoints.MapHub<LobbyHub>("/main-lobby");
+                endpoints.MapHub<MainLobbyHub>("/main-lobby");
             });
         }
         

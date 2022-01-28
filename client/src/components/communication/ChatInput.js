@@ -2,7 +2,7 @@ import React, { useState, useRef} from 'react';
 
 
 
-import './Chat.css'
+import './styles/Chat.css'
 
 const ChatInput = (props) => {
     const [message, setMessage] = useState('');

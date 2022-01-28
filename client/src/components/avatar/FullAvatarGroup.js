@@ -1,5 +1,5 @@
 import Avatar from "./Avatar";
-import './FullAvatarGroup.css'
+import './styles/FullAvatarGroup.css'
 
 const FullAvatarGroup = (props) => {
     const group = props.players

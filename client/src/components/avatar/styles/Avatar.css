@@ -1,0 +1,30 @@
+.avatar-display {
+  position: relative;
+  margin: auto 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.avatar-display .avatar-part {
+  position: absolute;
+}
+
+.avatar-display #avatar-mouth {
+  background-image: url("../../../images/mouth_atlas.gif");
+}
+
+.avatar-display #avatar-eyes {
+  background-image: url("../../../images/eyes_atlas.gif");
+}
+
+.avatar-display #avatar-colour {
+  background-image: url("../../../images/color_atlas.gif");
+}
+/*# sourceMappingURL=Avatar.css.map */

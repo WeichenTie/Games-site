@@ -1,17 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { HubConnectionBuilder } from '@microsoft/signalr';
-import { useSelector } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
-const useLobby = (_url, _lobbyID) => {
+const useLobby = (_url, _lobbyID = null, clientMethods = async () => { }) => {
+
     const url = useRef(_url);
     const isConnected = useRef(false);
-    const [ connection, setConnection ] = useState(null);
-    const [ lobbyID, setLobbyID ] = useState(_lobbyID)
-    const [ chat, setChat ] = useState([]);
-    const [ allPlayers, setAllPlayers ] = useState([]);
+    const [connection, setConnection] = useState(null);
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [lobbyID, setLobbyID] = useState(_lobbyID == null ? searchParams.get("lobbyId") : _lobbyID);
 
-    
+    const [chat, setChat] = useState([]);
+    const [allPlayers, setAllPlayers] = useState([]);
+
     const navigate = useRef(useNavigate());
     const token = useSelector(state => state.token);
 
@@ -22,10 +24,11 @@ const useLobby = (_url, _lobbyID) => {
             .build();
         setConnection(newConnection);
         console.log("Set connection");
-    }, []);
+    }, [url]);
 
     useEffect(() => {
         const loadConnection = async () => {
+            await clientMethods(this);
             await connection.on('RedirectToCharacterCreate', () => {
                 navigate.current("/");
             });
@@ -34,6 +37,9 @@ const useLobby = (_url, _lobbyID) => {
             });
             await connection.on('LeaveLobby', () => {
                 // TODO: Leave Lobby actions
+            });
+            await connection.on('Redirect', (addr) => {
+                navigate.current(addr);
             });
             await connection.on('ReceiveAllPlayers', allPlayers => {
                 setAllPlayers(allPlayers);
@@ -48,6 +54,7 @@ const useLobby = (_url, _lobbyID) => {
             console.log("DONE LOADING");
             return async () => {
                 console.log("dismounting");
+                connection.stop();
                 await leaveLobby();
             }
         }
@@ -62,7 +69,7 @@ const useLobby = (_url, _lobbyID) => {
         try {
             await connection.send('SendMessage', token, lobbyID, chatMessage);
         }
-        catch(e) {
+        catch (e) {
             console.log(e);
         }
     }
@@ -72,7 +79,7 @@ const useLobby = (_url, _lobbyID) => {
         try {
             await connection.send('JoinLobby', token, lobbyID);
         }
-        catch(e) {
+        catch (e) {
             console.log(e);
         }
     }
@@ -82,7 +89,7 @@ const useLobby = (_url, _lobbyID) => {
             console.log("running" + connection)
             await connection.send('LeaveLobby', token, lobbyID);
         }
-        catch(e) {
+        catch (e) {
             console.log(e);
         }
     }
@@ -91,14 +98,14 @@ const useLobby = (_url, _lobbyID) => {
         try {
             await connection.send('GetAllPlayers', token);
         }
-        catch(e) {
+        catch (e) {
             console.log(e);
         }
     }
-    
+
     return (
-        {   
-            connection, 
+        {
+            connection,
             isConnected,
             lobbyID,
             chat,
@@ -107,5 +114,5 @@ const useLobby = (_url, _lobbyID) => {
         }
     );
 }
- 
+
 export default useLobby;
