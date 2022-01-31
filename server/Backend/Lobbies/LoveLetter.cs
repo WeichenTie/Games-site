@@ -7,11 +7,11 @@ using Server.Backend.DataStorage;
 using Server.Backend.Models;
 
 namespace Server.Backend.Lobbies {
-    public class MainLobby : ILobby<Player>
+    public class LoveLetter : ILobby<Player>
     {
-        public MainLobby(string lobbyID) : base(lobbyID)
+        public LoveLetter(string lobbyID) : base(lobbyID)
         {
-            this.Type = "MainLobby";
+            this.Type = "LoveLetter";
         }
         public override void AddPlayer(string token)
         {

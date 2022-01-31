@@ -24,7 +24,7 @@ const CharacterCreation = (props) => {
 
     useEffect(() => {
         const newConnection = new HubConnectionBuilder()
-            .withUrl('http://127.0.0.1:5000/create-character')
+            .withUrl('http://127.0.0.1:5000/CreateCharacter')
             .withAutomaticReconnect()
             .configureLogging(LogLevel.Information)
             .build();
@@ -38,11 +38,8 @@ const CharacterCreation = (props) => {
             connection.start()
                 .then(result => {
                     connection.on('ReceiveToken', token => {
-                        console.log("SETTING TOKEN: "+ token);
                         dispatch(setToken(token));
-                        console.log("DONE SETTING TOKEN: "+ token);
                         navigate("/MainLobby");
-                        console.log("CHANGING PAGE: "+ token);
                     });
                 })
                 .catch(e => console.log('Connection failed: ', e));
@@ -58,9 +55,7 @@ const CharacterCreation = (props) => {
             colourIndex: colourIndex,
         };
         try {
-            console.log("SENDING CREATE CHAR REQUEST: "+ token);
             await connection.send('CreateCharacter', playerData);
-            console.log("DONE SENDING CREATE CHAR REQUEST: "+ token)
         }
         catch(e) {
             console.log(e);
@@ -70,7 +65,6 @@ const CharacterCreation = (props) => {
         e.preventDefault();
         const isNameValid = name && name !== ''; // check for valid message
         if (isNameValid) {
-            console.log("CREATING CHARACTER: "+ token)
             await createCharacter();
         }
     }

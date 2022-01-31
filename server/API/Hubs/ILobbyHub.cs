@@ -17,12 +17,14 @@ namespace Server.Api.Hubs
         where TPlayer : Player
         where TClient : class , ILobbyClient
     {
+        public abstract string GetLobbyType();
+
         public async override Task OnConnectedAsync() {
-            Console.WriteLine($"Connect to Lobby Hub: {Context.ConnectionId}");
+            //Console.WriteLine($"Connect to Lobby Hub: {Context.ConnectionId}");
         }
 
         public async override Task OnDisconnectedAsync(Exception exception) {
-            Console.WriteLine("Disconnecting from Lobby Hub: " + Context.ConnectionId);
+            //Console.WriteLine("Disconnecting from Lobby Hub: " + Context.ConnectionId);
             await LeaveLobby((string)Context.Items["token"], (string)Context.Items["lobbyId"]);
             await base.OnDisconnectedAsync(exception);
         }
@@ -52,7 +54,7 @@ namespace Server.Api.Hubs
             bool isValid = Data.Instance.ContainsLobby(lobbyId);
             if (!isValid) {
                 Console.WriteLine("FAILED LOBBY VALIDATION REDIRECTING");
-                await Clients.Caller.RedirectToCharacterCreate(); // Reroute client to character create
+                await Clients.Caller.Redirect("/MainLobby"); // Reroute client to main
                 return false;
             }
             Data.Instance.UpdateTokenConnection(lobbyId, Context.ConnectionId);
@@ -60,11 +62,17 @@ namespace Server.Api.Hubs
         }
         //-----------------------------------------------------------
         // Returns whether the lobby and token exists within the server.
+        // Also if the player belongs in this lobby.
         // Redirects the client if not found.
         //-----------------------------------------------------------
         public virtual async Task<bool> ValidateAll(string token, string lobbyId) {
             // Check if token exists
-            return (await ValidateToken(token) && await ValidateLobby(lobbyId));
+            bool valid = (await ValidateToken(token) && await ValidateLobby(lobbyId));
+            if (valid && !Data.Instance.GetLobby<TPlayer>(lobbyId).Type.Equals(GetLobbyType())) {
+                await Clients.Caller.Redirect("/MainLobby"); // Reroute client to main
+                return false;
+            }
+            return valid;
         }
 
         //-----------------------------------------------------------

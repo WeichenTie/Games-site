@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Backend\Games\**" />
-    <Content Remove="Backend\Games\**" />
-    <EmbeddedResource Remove="Backend\Games\**" />
-    <None Remove="Backend\Games\**" />
+    <Folder Include="Backend\Games\" />
   </ItemGroup>
 
 </Project>

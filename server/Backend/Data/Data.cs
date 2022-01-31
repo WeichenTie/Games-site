@@ -33,7 +33,9 @@ namespace Server.Backend.DataStorage {
         }
         public static void StartBackend() {
             ILobby<Player> lobby = new MainLobby("HOME");
+            ILobby<Player> lobby1 = new MainLobby("pl2");
             Data.Instance.AddLobby(lobby);
+            Data.Instance.AddLobby(lobby1);
         }
         //////////////////////////////////////////////////////////
         //                    Data Fields                       //

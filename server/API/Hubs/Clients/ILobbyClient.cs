@@ -6,7 +6,7 @@ namespace Server.Api.Hubs.Clients
 {
     public interface ILobbyClient {
         Task RedirectToCharacterCreate();
-        Task Redirect(string addr);
+        Task Redirect(string url);
         Task ReceiveMessage(ChatMessage message);
         Task JoinLobby();
         Task LeaveLobby();

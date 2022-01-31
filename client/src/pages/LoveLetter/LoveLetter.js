@@ -7,7 +7,7 @@ import '../../components/buttons/AnimatedPushButton.css';
 import './LoveLetter.css'
 
 const LoveLetter = () => {
-    const lobbyHook = useLobby('http://127.0.0.1:5000/love-letter', 'HOME');
+    const lobbyHook = useLobby('http://127.0.0.1:5000/LoveLetter', null);
 
     const [lobbyCode, setLobbyCode] = useState('');
     const [selectedGame, setSelectedGame] = useState('');

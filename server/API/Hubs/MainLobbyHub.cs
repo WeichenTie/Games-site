@@ -24,13 +24,20 @@ namespace Server.Api.Hubs
             Data.Instance.AddLobby(lobby);
             await JoinLobbyWithId(token, lobby.LOBBY_ID);
         }
+
+
         //--------------------------------------------------------------
         //
         //--------------------------------------------------------------
         public async Task JoinLobbyWithId(string token, string lobbyId) {
+            Console.Out.WriteLine($"Attempting to join{token}, lobbyid: {lobbyId}");
             if (!await ValidateAll(token, lobbyId)) return;
-            string url = $"/{Data.Instance.GetLobby<Player>(lobbyId).Type}";
-            await Clients.Caller.RedirectToLobby(url, lobbyId);
+            string url = $"/{Data.Instance.GetLobby<Player>(lobbyId).Type}?lobbyId={lobbyId}";
+            await Clients.Caller.Redirect(url);
+        }
+
+        public override string GetLobbyType() {
+            return "MainLobby";
         }
     }
 }

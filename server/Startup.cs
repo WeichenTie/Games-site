@@ -48,8 +48,9 @@ namespace Server
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<CharacterCreationHub>("/create-character");
-                endpoints.MapHub<MainLobbyHub>("/main-lobby");
+                endpoints.MapHub<CharacterCreationHub>("/CreateCharacter");
+                endpoints.MapHub<MainLobbyHub>("/MainLobby");
+                endpoints.MapHub<MainLobbyHub>("/LoveLetter");
             });
         }
         
